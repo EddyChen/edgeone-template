@@ -1,9 +1,4 @@
-interface Env {
-  USERS: KVNamespace
-}
-
-export async function onRequest(context: { request: Request; env: Env }): Promise<Response> {
-  const { request, env } = context
+export async function onRequest({ request, env }: { request: Request; env: { users: any } }): Promise<Response> {
   const log = console.log
 
   if (request.method !== 'POST') {
@@ -27,33 +22,13 @@ export async function onRequest(context: { request: Request; env: Env }): Promis
 
     log(`Login attempt for user: ${username}`)
 
-    if (!env.USERS) {
-      log('KV not bound, using fallback auth')
-      if (username === 'admin' && password === '123456') {
-        log(`Login successful (fallback) for user: ${username}`)
-        return new Response(JSON.stringify({ success: true, message: '登录成功', username }), {
-          status: 200,
-          headers: { 'Content-Type': 'application/json' }
-        })
-      }
-      return new Response(JSON.stringify({ success: false, message: '用户名或密码错误' }), {
-        status: 401,
-        headers: { 'Content-Type': 'application/json' }
-      })
-    }
+    const userName = await users.get('userName')
+    const userPassword = await users.get('userPassword')
 
-    const storedPassword = await env.USERS.get(`user:${username}`)
+    log(`KV userName: ${userName}, userPassword exists: ${!!userPassword}`)
 
-    if (!storedPassword) {
-      log(`User not found: ${username}`)
-      return new Response(JSON.stringify({ success: false, message: '用户名或密码错误' }), {
-        status: 401,
-        headers: { 'Content-Type': 'application/json' }
-      })
-    }
-
-    if (password !== storedPassword) {
-      log(`Invalid password for user: ${username}`)
+    if (username !== userName || password !== userPassword) {
+      log(`Invalid credentials for user: ${username}`)
       return new Response(JSON.stringify({ success: false, message: '用户名或密码错误' }), {
         status: 401,
         headers: { 'Content-Type': 'application/json' }

@@ -4,8 +4,8 @@
 
  - 这是一个针对 Tencent EdgeOne 平台的 App 开发的模版项目
  - 用于帮助非研发人员或者新手更加方便地通过 AI 开发 Tencent EdgeOne Pages 项目
- - 项目前端基于 Vue3 + Vite 框架
- - 项目后端使用 EdgeOne Functions 实现
+ - 项目前端包含一个登录页面，用户输入用户名和密码
+ - 项目后端使用 EdgeOne Functions 实现，用于验证登录
  - 项目数据存放在 EdgeOne KV 存储中
 
 ## 项目结构
@@ -24,9 +24,10 @@
  - 必须通过 edgeone cli 来管理项目，包括创建，本地开发，部署 等
  - 项目要分为 preview 环境 和 prod 正式环境
  - 常用命令：
-   - `edgeone dev` - 本地开发启动
-   - `edgeone deploy --preview` - 部署到 preview 环境
-   - `edgeone deploy` - 部署到 prod 环境
+   - `edgeone pages link` - 连接远端项目
+   - `edgeone pages dev` - 本地开发启动
+   - `edgeone pages deploy --preview` - 部署到 preview 环境
+   - `edgeone pages deploy` - 部署到 prod 环境
 
 ## 开发要求
 
@@ -40,7 +41,6 @@
 ## 参考文档
 
  - 必要时请加载并仔细阅读相关文档
- - Pages Functions 概览: https://cloud.tencent.com/document/product/1552/127415
  - Edge Functions 概述: https://cloud.tencent.com/document/product/1552/127416
  - KV 存储: https://cloud.tencent.com/document/product/1552/127420
  - EdgeOne CLI: https://cloud.tencent.com/document/product/1552/127423
