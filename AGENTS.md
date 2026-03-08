@@ -12,18 +12,15 @@
 
  - @docs/ 目录下存放所有的文档和开发指引
  - @scripts/ 目录下存放常用的脚本工具
+ - edge-functions/ - EdgeOne Functions 后端代码
  - src/ 目录存放源代码
-   - src/functions/ - EdgeOne Functions 后端代码
-   - src/pages/ - 前端页面组件
-   - src/components/ - 可复用组件
-   - src/assets/ - 静态资源
-   - src/utils/ - 工具函数
 
 ## 项目管理
 
  - 必须通过 edgeone cli 来管理项目，包括创建，本地开发，部署 等
  - 项目要分为 preview 环境 和 prod 正式环境
  - 常用命令：
+   - `edgeone login` - 登录
    - `edgeone pages link` - 连接远端项目
    - `edgeone pages dev` - 本地开发启动
    - `edgeone pages deploy -e preview` - 部署到 preview 环境

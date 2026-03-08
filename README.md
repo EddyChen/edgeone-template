@@ -12,7 +12,7 @@ npm install
 
 在 EdgeOne 控制台创建 KV 存储并绑定到项目：
 
-1. 登录 EdgeOne 控制台
+1. 登录 EdgeOne 控制台 `edgeone login`
 2. 进入 KV Storage 创建命名空间
 3. 使用 `edgeone pages link` 命令关联项目
 
@@ -38,8 +38,7 @@ edgeone pages deploy
 ```
 src/
 ├── functions/          # 后端函数
-│   ├── login/         # 登录验证
-│   └── init/          # 初始化默认用户
+│   └── login/         # 登录验证
 ├── pages/             # 前端页面
 ├── App.vue            # 登录页面组件
 └── main.ts            # 入口文件
