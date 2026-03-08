@@ -26,7 +26,7 @@
  - 常用命令：
    - `edgeone pages link` - 连接远端项目
    - `edgeone pages dev` - 本地开发启动
-   - `edgeone pages deploy --preview` - 部署到 preview 环境
+   - `edgeone pages deploy -e preview` - 部署到 preview 环境
    - `edgeone pages deploy` - 部署到 prod 环境
 
 ## 开发要求

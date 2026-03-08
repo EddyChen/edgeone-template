@@ -16,29 +16,21 @@ npm install
 2. 进入 KV Storage 创建命名空间
 3. 使用 `edgeone pages link` 命令关联项目
 
-### 3. 初始化用户数据
-
-部署后访问 `/api/init` 初始化默认用户：
-
-- 用户名：admin
-- 密码：123456
-
 ### 4. 本地开发
 
 ```bash
-npm run dev
-# 或
-edgeone dev
+edgeone pages link
+edgeone pages dev
 ```
 
 ### 5. 部署
 
 ```bash
 # 预览环境
-edgeone deploy --preview
+edgeone pages deploy -e preview
 
 # 生产环境
-edgeone deploy
+edgeone pages deploy
 ```
 
 ## 项目结构

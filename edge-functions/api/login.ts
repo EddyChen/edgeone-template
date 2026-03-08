@@ -1,4 +1,4 @@
-export async function onRequest({ request, env }: { request: Request; env: { users: any } }): Promise<Response> {
+export async function onRequest({ request, env }: { request: Request; env: any }): Promise<Response> {
   const log = console.log
 
   if (request.method !== 'POST') {
